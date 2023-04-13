@@ -7,18 +7,23 @@
 // BROWSER!!!!! Fetch Data, Get Geolocation, setTimeout, setTimer etc
 // These are coming from browser not JavaScript. So, JavaScript gives this functionality to browser to handle, once it's doneit comes to JavaScript to execute if it is not busy
 
-boilWater(0);
+boilWater();
 console.log("chop carrots");
-for (let i = 0; i < 10000; i++) {
-  console.log("JavaScript: I am busy");
-}
 
-function boilWater(time) {
+function boilWater() {
   console.log("boiling...");
   setTimeout(() => {
-    console.log("done.");
-  }, time);
-  // here time is the minimum, if javascript is busy then browser might wait until JavaScript is free
+    console.log("boiling water done.");
+    console.log("add carrots, boiling...");
+    setTimeout(() => {
+      console.log("carrots are done");
+      console.log("add onions, boiling...");
+      setTimeout(() => {
+        console.log("onions are done");
+      }, 5000);
+    }, 5000);
+    console.log("chop onions");
+  }, 10000);
 }
 
-// JavaScript is still single threaded and synchronous, by giving the work to browser, it kind of works asynchronously - to make things happen background.
+// The more things we need to run sequentially, the more nesting callbacks it becomes, which is hard to understand i.e. callback hell
