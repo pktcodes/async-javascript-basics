@@ -1,29 +1,29 @@
-/* Make soup */
-// boil water for 10 min
-// chop carrots
-// add carrots boil for 5 min
-// chop onions
-// add onion boil for 5 min
-// BROWSER!!!!! Fetch Data, Get Geolocation, setTimeout, setTimer etc
-// These are coming from browser not JavaScript. So, JavaScript gives this functionality to browser to handle, once it's doneit comes to JavaScript to execute if it is not busy
+// callbacks, promises, async/await
 
-boilWater();
-console.log("chop carrots");
+const heading1 = document.querySelector(".heading-1");
+const heading2 = document.querySelector(".heading-2");
+const heading3 = document.querySelector(".heading-3");
+const btn = document.querySelector(".btn");
 
-function boilWater() {
-  console.log("boiling...");
+/* Initial Example */
+// btn.addEventListener("click", () => {
+//   console.log("You clicked the button.");
+// });
+
+// console.log("I'm second");
+// for (let i = 0; i < 10000; i++) {
+//   console.log("I am busy");
+// }
+
+/* Second Example - The challenge here second one should start executing once first one completes and same goes for third to second*/
+btn.addEventListener("click", () => {
   setTimeout(() => {
-    console.log("boiling water done.");
-    console.log("add carrots, boiling...");
+    heading1.style.color = "red";
     setTimeout(() => {
-      console.log("carrots are done");
-      console.log("add onions, boiling...");
+      heading2.style.color = "green";
       setTimeout(() => {
-        console.log("onions are done");
-      }, 5000);
-    }, 5000);
-    console.log("chop onions");
-  }, 10000);
-}
-
-// The more things we need to run sequentially, the more nesting callbacks it becomes, which is hard to understand i.e. callback hell
+        heading3.style.color = "blue";
+      }, 1000);
+    }, 2000);
+  }, 1000);
+});
